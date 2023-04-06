@@ -2,12 +2,15 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Product from '../../component/Product/Product';
 import ProductDetails from '../../component/Product/ProductDetails';
+import { addToLocalDb } from '../../utilities/utilities';
+import CartIcon from '../../component/CartIcon/CartIcon';
 
 
 const Shop = ({limit}) => {
     const [products, setProducts] = useState([])
     const [viewDetails, setViewDetails] = useState(false)
     const [singleProduct, setSingleProduct] = useState({})
+    const [cart, setCart] = useState([]);
 
     useEffect(() => {
         axios.get(`http://localhost:5000/products`)
@@ -31,10 +34,9 @@ const Shop = ({limit}) => {
         }
     }
 
-    const handleAddToCart =(product) =>{
-        console.log('====================================');
-        console.log(product);
-        console.log('====================================');
+    const handleAddToCart =(selectedProduct) =>{
+        addToLocalDb(selectedProduct)
+        setViewDetails(false)
     }
 
     return (
@@ -48,6 +50,7 @@ const Shop = ({limit}) => {
                         handleDetails={handleDetails}
                     ></Product>)
                 }
+                <CartIcon></CartIcon>
             </div>
             {
                 viewDetails && <ProductDetails 

@@ -27,6 +27,7 @@ const Navbar = () => {
                     <div onClick={() => setDisplay(false)} className="nav-menu-link items-start flex flex-col md:flex-row py-12 md:py-1 ">
                          <NavLink className={({ isActive }) => (isActive ? 'mr-4 text-lg font-semibold   my-2 text-[#fd6a53]' : 'mr-4 text-lg font-semibold text-white  my-2')} to='/'>Home</NavLink>
                          <NavLink className={({ isActive }) => (isActive ? 'mr-4 text-lg font-semibold   my-2 text-[#fd6a53]' : 'mr-4 text-lg font-semibold text-white  my-2')} to='/shop'>Shop Now</NavLink>
+                         <NavLink className={({ isActive }) => (isActive ? 'mr-4 text-lg font-semibold   my-2 text-[#fd6a53]' : 'mr-4 text-lg font-semibold text-white  my-2')} to='/orders'>Orders</NavLink>
                          <NavLink className={({ isActive }) => (isActive ? 'mr-4 text-lg font-semibold   my-2 text-[#fd6a53]' : 'mr-4 text-lg font-semibold text-white  my-2')} to='/join'>Join Now</NavLink>
                        
 

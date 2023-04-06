@@ -5,8 +5,10 @@ import { router } from './router/Routes';
 
 function App() {
   return (
-    <RouterProvider router={router}>
+    <div>
+      <RouterProvider router={router}>
       </RouterProvider>
+    </div>
   );
 }
 
