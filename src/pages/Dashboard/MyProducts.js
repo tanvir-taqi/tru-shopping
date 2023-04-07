@@ -12,15 +12,18 @@ const MyProducts = () => {
     const { data: products = [], isLoading, refetch } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/products`)
+            const res = await fetch(`https://tru-shopper-server.vercel.app/products`)
             const data = await res.json();
             return data
         }
 
     })
 
+    // handle the stocks of the product
+    // the new value will be stored
+    // new value will not be added to previous
     const handleStockUpdate = (id) => {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://tru-shopper-server.vercel.app/products/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -43,9 +46,9 @@ const MyProducts = () => {
         setConfirmMdal(true)
     }
 
-
+    // delete product from database
     const handleDelete = () => {
-        fetch(`http://localhost:5000/product/${deleteID}`, {
+        fetch(`https://tru-shopper-server.vercel.app/product/${deleteID}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

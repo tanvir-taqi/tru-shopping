@@ -4,6 +4,7 @@ import './Product.css';
 
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import { FaStar } from 'react-icons/fa';
 
 const Product = ({ product, handleDetails }) => {
 
@@ -22,7 +23,7 @@ const Product = ({ product, handleDetails }) => {
                 <p className='product-name'>{name}</p>
                 <p>Price: ${price}</p>
                 <p><small>Seller: {seller}</small></p>
-                <p><small>Ratings: {ratings} stars</small></p>
+                <p ><small className='flex items-center space-x-1 justify-start'> <span>Ratings: {ratings}</span>  <span> <FaStar></FaStar></span> </small></p>
             </div>
             
             <button onClick={() => handleDetails(_id,true)} className='btn-cart'>

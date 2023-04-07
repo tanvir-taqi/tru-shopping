@@ -17,6 +17,7 @@ const DashboardLayout = () => {
                         {isMenuOpen ? <HiX size={30} /> : <HiMenuAlt1 size={30} />}
                     </button>
                     <nav className={`md:flex flex-col ${isMenuOpen ? 'flex ' : 'hidden'}`}>
+                     
                         <NavLink
                             className={({ isActive }) =>
                                 isActive

@@ -6,7 +6,7 @@ const SingleOrder = ({ order,handleOrderStatus }) => {
     const { name, address, phone, product ,_id,status} = order
     return (
         <div>
-            <div className='grid grid-cols-1 md:grid-cols-4 gap-6 justify-center items-center border border-[#fd6a53fe] p-4 '>
+            <div className='grid grid-cols-1 md:grid-cols-4 gap-6 justify-center items-center border border-[#fd6a53fe] p-4 my-4'>
                 <div>
                     <h1>Address: <span className='font-medium'> {address}</span></h1>
                 </div>
@@ -21,7 +21,7 @@ const SingleOrder = ({ order,handleOrderStatus }) => {
                 </div>
                 <div>
                     {
-                        status ? <div><h2>Order sent successfully</h2></div> : <button onClick={()=>handleOrderStatus(_id)} className='py-1 px-4 bg-[#fd6a53fe] text-white duration-700 hover:rounded-3xl'>Product Shipped</button>
+                        status ? <div><h2>Order sent successfully</h2></div> : <button onClick={()=>handleOrderStatus(_id)} className='py-1 px-4 bg-[#fd6a53fe] text-white duration-700 hover:rounded-3xl'>Product Send Now</button>
 
                     }
                 </div>

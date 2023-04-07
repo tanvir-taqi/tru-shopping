@@ -18,8 +18,8 @@ const Login = ({setLoginFrom,setPhoneLoginFrom}) => {
                 <h1 className="text-center font-bold text-2xl">Sign In</h1>
                 <form >
                     <div className='flex flex-col my-3'>
-                        <label htmlFor="number" className='font-bold'>Phone Number</label>
-                        <input type="text" name="number" id="number" placeholder="Phone Number" className="p-2 text-black outline-none duration-500 w-2/3 focus:w-full" />
+                        <label htmlFor="email" className='font-bold'>Email</label>
+                        <input type="text" name="email" id="email" placeholder="Email" className="p-2 text-black outline-none duration-500 w-2/3 focus:w-full" />
                     </div>
                     <div className='flex flex-col my-3'>
                         <div className='flex justify-between items-center'>

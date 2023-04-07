@@ -12,6 +12,7 @@ const Orders = () => {
     const [phone, setPhone] = useState('')
     const [address, setAddsress] = useState('')
 
+    // get data from local storage
     useEffect(() => {
         const storedCart = getStoredCart();
         if (storedCart.length > 0) {
@@ -22,19 +23,22 @@ const Orders = () => {
 
         }
     }, [])
+
+    // cart items remove
     const handleRemoveItem = (id) => {
         const remaining = cartItems.filter(product => product._id !== id);
         setCartItems(remaining);
         removeFromDb(id);
     }
 
+    // total cart remove
     const clearCart = () =>{
         setCartItems([]);
         deleteShoppingCart();
     }
 
 
-
+    // send orders to the database
     const handleOrders = () =>{
         const currentDate = new Date().toISOString();
         const order = {
@@ -45,7 +49,7 @@ const Orders = () => {
             status:false,
             date:currentDate
         }
-        fetch('http://localhost:5000/orders',{
+        fetch('https://tru-shopper-server.vercel.app/orders',{
             method:'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -69,6 +73,10 @@ const Orders = () => {
             console.log('====================================');
         })
     }
+
+    useEffect(()=>{
+        window.scrollTo(0,0);
+    })
 
     return (
         <div className='min-h-screen'>

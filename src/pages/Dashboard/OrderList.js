@@ -7,15 +7,17 @@ const OrderList = () => {
     const { data: orderlist = [], isLoading, refetch } = useQuery({
         queryKey: ['orderlist'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/orderlist`)
+            const res = await fetch(`https://tru-shopper-server.vercel.app/orderlist`)
             const data = await res.json();
             return data
         }
 
     })
 
+    // handle the orders
+    // orders will be completed
     const handleOrderStatus = (id)=>{
-        fetch(`http://localhost:5000/orderlist/${id}`, {
+        fetch(`https://tru-shopper-server.vercel.app/orderlist/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

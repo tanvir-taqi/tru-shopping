@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCartPlus, FaTimes } from 'react-icons/fa';
+import { FaCartPlus, FaStar, FaTimes } from 'react-icons/fa';
 
 const ProductDetails = ({ singleProduct, handleAddToCart,setViewDetails }) => {
     const { name, img, seller, price, ratings, } = singleProduct;
@@ -14,8 +14,8 @@ const ProductDetails = ({ singleProduct, handleAddToCart,setViewDetails }) => {
                     <p className='text-3xl font-bold'>{name}</p>
                     <p>Price: ${price}</p>
                     <p><small>Seller: {seller}</small></p>
-                    <p><small>Ratings: {ratings} stars</small></p>
-                    <button onClick={() => handleAddToCart(singleProduct)} className='bg-orange-300 w-2/3 flex justify-center items-center duration-700 hover:rounded-xl hover:flex-row-reverse hover:bg-orange-200 hover:scale-105 py-1 font-bold'>
+                    <p ><small className='flex items-center space-x-1 justify-start'> <span>Ratings: {ratings}</span>  <span> <FaStar></FaStar></span> </small></p>
+                    <button onClick={() => handleAddToCart(singleProduct)} className='bg-[#fd6a538f] w-2/3 flex justify-center items-center duration-700 hover:rounded-xl hover:flex-row-reverse hover:bg-[#fd6a53] hover:scale-105 py-1 font-bold'>
                         <p className='px-4'>Add to Cart</p>
                         <FaCartPlus></FaCartPlus>
                     </button>

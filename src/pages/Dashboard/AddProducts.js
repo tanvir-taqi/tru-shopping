@@ -48,7 +48,7 @@ const AddProducts = () => {
 
 
     const addProductToDB = (product) => {
-        fetch('http://localhost:5000/products', {
+        fetch('https://tru-shopper-server.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
