@@ -4,27 +4,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
 
-const SignUp = ({setLoginFrom}) => {
+const SignUp = ({setLoginFrom,setPhoneLoginFrom}) => {
 
     const [errorMsg, setErrorMsg] = useState('')
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    const navigate = useNavigate();
-    const location = useLocation();
 
-
-    const from = location.state?.from?.pathname || "/";
-
-
-  
-
-   
-
-    
-
-    useEffect(()=>{
-        window.scrollTo(0,0);
-    })
 
 
    
@@ -92,6 +77,8 @@ const SignUp = ({setLoginFrom}) => {
 
 
                 </form>
+                <h4 className='my-4 text-2xl'>Login with phone Number? <button onClick={()=>setPhoneLoginFrom(true)} className='text-[#fd6a53]'>Click Here</button></h4>
+
                 <h4>Already Have an Account? <button onClick={()=>setLoginFrom(true)}  className='text-[#fd6a53]'>Sign In</button></h4>
             </div>
 

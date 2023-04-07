@@ -3,11 +3,19 @@ import { Link, NavLink } from 'react-router-dom';
 
 import { BiAlignMiddle, BiUserCircle } from "react-icons/bi";
 import './Navbar.css'
+import { AuthContext } from '../../../userContext/UserContext';
 
 
 const Navbar = () => {
     const [display, setDisplay] = useState(false)
+    const {user,logOut} = useContext(AuthContext)
 
+
+    const handleLogOut =()=>{
+        logOut()
+                .then(res => { })
+                .catch(err => console.log(err))
+    }
 
     return (
         <div className='' >
@@ -20,7 +28,7 @@ const Navbar = () => {
                         <h1 className='text-white title-navbar'>TruSoppinG</h1>
                     </Link>
 
-                    <button className='block md:hidden' onClick={() => setDisplay(!display)}><BiAlignMiddle></BiAlignMiddle></button>
+                    <button className='block md:hidden text-[#fd6a53]' onClick={() => setDisplay(!display)}><BiAlignMiddle></BiAlignMiddle></button>
                 </div>
                 {/* header links  */}
                 <div className={`nav-menu flex  md:items-center flex-col md:flex-row   ${display ? 'flex' : 'hidden md:flex'}`} >
@@ -28,21 +36,21 @@ const Navbar = () => {
                          <NavLink className={({ isActive }) => (isActive ? 'mr-4 text-lg font-semibold   my-2 text-[#fd6a53]' : 'mr-4 text-lg font-semibold text-white  my-2')} to='/'>Home</NavLink>
                          <NavLink className={({ isActive }) => (isActive ? 'mr-4 text-lg font-semibold   my-2 text-[#fd6a53]' : 'mr-4 text-lg font-semibold text-white  my-2')} to='/shop'>Shop Now</NavLink>
                          <NavLink className={({ isActive }) => (isActive ? 'mr-4 text-lg font-semibold   my-2 text-[#fd6a53]' : 'mr-4 text-lg font-semibold text-white  my-2')} to='/orders'>Orders</NavLink>
-                         <NavLink className={({ isActive }) => (isActive ? 'mr-4 text-lg font-semibold   my-2 text-[#fd6a53]' : 'mr-4 text-lg font-semibold text-white  my-2')} to='/join'>Join Now</NavLink>
                        
 
-{/* 
+
 
                         {
                             user ? <>
-                                <NavLink className={({ isActive }) => (isActive ? 'mr-4 text-lg font-semibold   my-2 text-cyan-700' : 'mr-4 text-lg font-semibold   my-2')} to='/dashboard'>Dashboard</NavLink>
+                                <NavLink className={({ isActive }) => (isActive ? 'mr-4 text-lg font-semibold   my-2 text-[#fd6a53]' : 'mr-4 text-lg font-semibold text-white  my-2')} to='/dashboard'>Dashboard</NavLink>
 
-                                <div className='my-3'> {user?.photoURL ? <img src={user?.photoURL} alt="" className="w-8 h-8 rounded-full  " /> : <span className=''><BiUserCircle></BiUserCircle></span>}</div>
-                                <button onClick={handleLogOut} className='md:mx-4 text-lg font-semibold my-2'>Sign Out</button>
+                               
+                                <button onClick={handleLogOut} className='md:mx-4 text-sm font-semibold my-2 px-5 py-1 text-white hover:text-[#fd6a53] border border-transparent hover:border-[#fd6a53] duration-700 hover:rounded-xl'>Sign Out</button>
 
                             </>
-                                : <NavLink to='/login' className={({ isActive }) => (isActive ? 'mr-4 text-lg font-semibold   my-2  text-cyan-700' : 'mr-4 text-lg font-semibold   my-2')}>Sign In </NavLink>
-                        } */}
+                                :  <NavLink className={({ isActive }) => (isActive ? 'mr-4 text-lg font-semibold   my-2 text-[#fd6a53]' : 'mr-4 text-lg font-semibold text-white  my-2')} to='/join'>Join Now</NavLink>
+
+                        }
 
                     </div>
 

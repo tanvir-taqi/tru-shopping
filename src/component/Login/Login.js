@@ -5,14 +5,11 @@ import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
-const Login = ({setLoginFrom}) => {
+const Login = ({setLoginFrom,setPhoneLoginFrom}) => {
    
     const [showPass, setShowPass] = useState(false)
     const [errorMsg, setErrorMsg] = useState('')
 
-    const navigate = useNavigate();
-    const location = useLocation();
- 
 
 
     return (
@@ -43,6 +40,7 @@ const Login = ({setLoginFrom}) => {
 
                     <input type="submit" className='text-black font-bold text-lg bg-[#fd6a53] py-2 px-4 rounded-3xl my-3 cursor-pointer' value="Sign In" />
                 </form>
+                <h4 className='my-4 text-2xl'>Login with phone Number? <button onClick={()=>setPhoneLoginFrom(true)} className='text-[#fd6a53]'>Click Here</button></h4>
                 <h4>New to <strong>TruShopping?</strong> <button onClick={()=>setLoginFrom(false)} className='text-[#fd6a53]'>Create Account</button></h4>
             </div>
 

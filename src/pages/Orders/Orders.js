@@ -36,11 +36,14 @@ const Orders = () => {
 
 
     const handleOrders = () =>{
+        const currentDate = new Date().toISOString();
         const order = {
             name,
             phone,
             address,
-            product:cartItems
+            product:cartItems,
+            status:false,
+            date:currentDate
         }
         fetch('http://localhost:5000/orders',{
             method:'POST',
